@@ -188,9 +188,8 @@ void affine_wavefronts_extend_mwavefront_compute_packed(
 }
 void affine_wavefronts_extend_mwavefront_compute(
     affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    const char* const text,
     const int text_length,
     const int score) {
   // Fetch m-wavefront
@@ -204,7 +203,7 @@ void affine_wavefronts_extend_mwavefront_compute(
     const awf_offset_t offset = offsets[k];
     int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
     int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
-    while (pattern[v++]==text[h++]) {
+    while (lambda(v++,h++)) {
       ++(offsets[k]);
     }
   }
@@ -215,17 +214,18 @@ void affine_wavefronts_extend_mwavefront_compute(
 /*
  * Gap-Affine Wavefront exact extension
  */
-void affine_wavefronts_extend_wavefront_packed(
+void affine_wavefronts_extend_wavefront(
     affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    const char* const text,
     const int text_length,
     const int score) {
   // Extend wavefront
-  affine_wavefronts_extend_mwavefront_compute_packed(
-      affine_wavefronts,pattern,pattern_length,
-      text,text_length,score);
+  affine_wavefronts_extend_mwavefront_compute(
+      affine_wavefronts,
+      lambda,
+      pattern_length,
+      text_length,score);
   // Reduce wavefront dynamically
   if (affine_wavefronts->reduction.reduction_strategy == wavefronts_reduction_dynamic) {
     affine_wavefronts_reduce_wavefronts(

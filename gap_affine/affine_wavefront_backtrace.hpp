@@ -32,6 +32,7 @@
 #ifndef AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
 #define AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
 
+#include <functional>
 #include "gap_affine/affine_wavefront.hpp"
 
 /*
@@ -58,9 +59,8 @@ typedef enum {
  */
 void affine_wavefronts_backtrace(
     affine_wavefronts_t* const affine_wavefronts,
-    char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    char* const text,
     const int text_length,
     const int alignment_score);
 

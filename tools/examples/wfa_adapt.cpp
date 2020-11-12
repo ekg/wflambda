@@ -29,7 +29,7 @@
  * DESCRIPTION: WFA Sample-Code
  */
 
-#include "gap_affine/affine_wavefront_align.h"
+#include "gap_affine/affine_wavefront_align.hpp"
 
 int main(int argc,char* argv[]) {
   // Patter & Text
@@ -52,7 +52,11 @@ int main(int argc,char* argv[]) {
       min_wavefront_length,max_distance_threshold,NULL,mm_allocator);
   // Align
   affine_wavefronts_align(
-      affine_wavefronts,pattern,strlen(pattern),text,strlen(text));
+      affine_wavefronts,
+      [&](const int& v, const int& h) {
+          return pattern[v] == text[h];
+      },
+      strlen(pattern),strlen(text));
   // Count mismatches, deletions, and insertions
   int i, misms=0, ins=0, del=0;
   edit_cigar_t* const edit_cigar = &affine_wavefronts->edit_cigar;

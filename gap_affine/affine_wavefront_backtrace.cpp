@@ -226,28 +226,9 @@ bool backtrace_wavefront_trace_mismatch(
           k <= mwavefront->hi_base &&
           offset == mwavefront->offsets[k]+1);
 }
-/*
- * Backtrace Operations
- */
-int affine_wavefronts_backtrace_compute_max_matches(
-    affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
-    const char* const text,
-    const int k,
-    awf_offset_t offset) {
-  // Locate position
-  int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
-  int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
-  // Check matches
-  int num_matches = 0;
-  while (v>0 && h>0 && pattern[--v] == text[--h]) ++num_matches;
-  // Return max-matches
-  return num_matches;
-}
 void affine_wavefronts_backtrace_matches__check(
     affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
-    const char* const text,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int k,
     awf_offset_t offset,
     const bool valid_location,
@@ -262,7 +243,7 @@ void affine_wavefronts_backtrace_matches__check(
     if (!valid_location) { // Check inside table
       fprintf(stderr,"Backtrace error: Match outside DP-Table\n");
       exit(1);
-    } else if (pattern[v-1] != text[h-1]) { // Check match
+    } else if (!lambda(v-1, h-1)) { // Check match
       fprintf(stderr,"Backtrace error: Not a match traceback\n");
       exit(1);
     }
@@ -287,9 +268,8 @@ void affine_wavefronts_backtrace_matches(
  */
 void affine_wavefronts_backtrace(
     affine_wavefronts_t* const affine_wavefronts,
-    char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    char* const text,
     const int text_length,
     const int alignment_score) {
   // STATS
@@ -338,8 +318,9 @@ void affine_wavefronts_backtrace(
     // Traceback Matches
     if (backtrace_type == backtrace_wavefront_M) {
       const int num_matches = offset - max_all;
-      affine_wavefronts_backtrace_matches__check(affine_wavefronts,
-          pattern,text,k,offset,valid_location,num_matches,cigar);
+      affine_wavefronts_backtrace_matches__check(
+          affine_wavefronts,
+          lambda,k,offset,valid_location,num_matches,cigar);
       offset = max_all;
     }
     // Traceback Operation
@@ -390,8 +371,9 @@ void affine_wavefronts_backtrace(
   // Account for last operations
   if (score == 0) {
     // Account for last stroke of matches
-    affine_wavefronts_backtrace_matches__check(affine_wavefronts,
-        pattern,text,k,offset,valid_location,offset,cigar);
+    affine_wavefronts_backtrace_matches__check(
+        affine_wavefronts,
+        lambda,k,offset,valid_location,offset,cigar);
   } else {
     // Account for last stroke of insertion/deletion
     while (v > 0) {cigar->operations[(cigar->begin_offset)--] = 'D'; --v;};

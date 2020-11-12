@@ -105,9 +105,13 @@ void benchmark_gap_affine_wavefront(
   // Align
   timer_start(&align_input->timer);
   // affine_wavefronts_clear(affine_wavefronts);
-  affine_wavefronts_align(affine_wavefronts,
-      align_input->pattern,align_input->pattern_length,
-      align_input->text,align_input->text_length);
+  affine_wavefronts_align(
+      affine_wavefronts,
+      [&](const int& v, const int& h) {
+          return align_input->pattern[v] == align_input->text[h];
+      },
+      align_input->pattern_length,
+      align_input->text_length);
   timer_stop(&align_input->timer);
   // Debug alignment
   if (align_input->debug_flags) {

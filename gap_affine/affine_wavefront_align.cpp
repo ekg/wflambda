@@ -278,9 +278,8 @@ void affine_wavefronts_compute_offsets_m(
  */
 void affine_wavefronts_compute_wavefront(
     affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    const char* const text,
     const int text_length,
     const int score) {
   // Select wavefronts
@@ -339,37 +338,35 @@ void affine_wavefronts_compute_wavefront(
  */
 void affine_wavefronts_align(
     affine_wavefronts_t* const affine_wavefronts,
-    const char* const pattern,
+    const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
-    const char* const text,
     const int text_length) {
-  // Init padded strings
-  strings_padded_t* const strings_padded =
-      strings_padded_new_rhomb(
-          pattern,pattern_length,text,text_length,
-          AFFINE_LAMBDA_WAVEFRONT_PADDING,affine_wavefronts->mm_allocator);
   // Initialize wavefront
   affine_wavefront_initialize(affine_wavefronts);
   // Compute wavefronts for increasing score
   int score = 0;
   while (true) {
     // Exact extend s-wavefront
-    affine_wavefronts_extend_wavefront_packed(
-        affine_wavefronts,strings_padded->pattern_padded,pattern_length,
-        strings_padded->text_padded,text_length,score);
+    affine_wavefronts_extend_wavefront(
+        affine_wavefronts,
+        lambda,
+        pattern_length,
+        text_length,score);
     // Exit condition
     if (affine_wavefront_end_reached(affine_wavefronts,pattern_length,text_length,score)) {
       // Backtrace & check alignment reached
       affine_wavefronts_backtrace(
-          affine_wavefronts,strings_padded->pattern_padded,pattern_length,
-          strings_padded->text_padded,text_length,score);
+          affine_wavefronts,
+          lambda,
+          pattern_length,
+          text_length,score);
       break;
     }
     // Update all wavefronts
     ++score; // Increase score
     affine_wavefronts_compute_wavefront(
-        affine_wavefronts,strings_padded->pattern_padded,pattern_length,
-        strings_padded->text_padded,text_length,score);
+        affine_wavefronts,lambda,pattern_length,
+        text_length,score);
     // DEBUG
     //affine_wavefronts_debug_step(affine_wavefronts,pattern,text,score);
     WAVEFRONT_STATS_COUNTER_ADD(affine_wavefronts,wf_steps,1);
@@ -377,7 +374,5 @@ void affine_wavefronts_align(
   // DEBUG
   //affine_wavefronts_debug_step(affine_wavefronts,pattern,text,score);
   WAVEFRONT_STATS_COUNTER_ADD(affine_wavefronts,wf_score,score); // STATS
-  // Free
-  strings_padded_delete(strings_padded);
 }
 
