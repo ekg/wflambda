@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA display functions
  */
 
-#ifndef AFFINE_WAVEFRONT_DISPLAY_H_
-#define AFFINE_WAVEFRONT_DISPLAY_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_DISPLAY_H_
+#define AFFINE_LAMBDA_WAVEFRONT_DISPLAY_H_
 
 /*
  * Includes
@@ -75,4 +75,4 @@ void affine_wavefronts_debug_step(
     const char* const text,
     const int score);
 
-#endif /* AFFINE_WAVEFRONT_DISPLAY_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_DISPLAY_H_ */

@@ -40,8 +40,8 @@ bool affine_wavefronts_valid_location(
     const int pattern_length,
     const int text_length) {
   // Locate offset (remember that backtrace is always +1 offset ahead)
-  const int v = AFFINE_WAVEFRONT_V(k,offset);
-  const int h = AFFINE_WAVEFRONT_H(k,offset);
+  const int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+  const int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
   return (v > 0 && v <= pattern_length &&
           h > 0 && h <= text_length);
 }
@@ -69,14 +69,14 @@ awf_offset_t backtrace_wavefront_trace_deletion_open_offset(
     const int score,
     const int k,
     const awf_offset_t offset) {
-  if (score < 0) return AFFINE_WAVEFRONT_OFFSET_NULL;
+  if (score < 0) return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront != NULL &&
       mwavefront->lo_base <= k+1 &&
       k+1 <= mwavefront->hi_base) {
     return mwavefront->offsets[k+1];
   } else {
-    return AFFINE_WAVEFRONT_OFFSET_NULL;
+    return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   }
 }
 awf_offset_t backtrace_wavefront_trace_deletion_extend_offset(
@@ -84,14 +84,14 @@ awf_offset_t backtrace_wavefront_trace_deletion_extend_offset(
     const int score,
     const int k,
     const awf_offset_t offset) {
-  if (score < 0) return AFFINE_WAVEFRONT_OFFSET_NULL;
+  if (score < 0) return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   affine_wavefront_t* const dwavefront = affine_wavefronts->dwavefronts[score];
   if (dwavefront != NULL &&
       dwavefront->lo_base <= k+1 &&
       k+1 <= dwavefront->hi_base) {
     return dwavefront->offsets[k+1];
   } else {
-    return AFFINE_WAVEFRONT_OFFSET_NULL;
+    return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   }
 }
 awf_offset_t backtrace_wavefront_trace_insertion_open_offset(
@@ -99,14 +99,14 @@ awf_offset_t backtrace_wavefront_trace_insertion_open_offset(
     const int score,
     const int k,
     const awf_offset_t offset) {
-  if (score < 0) return AFFINE_WAVEFRONT_OFFSET_NULL;
+  if (score < 0) return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront != NULL &&
       mwavefront->lo_base <= k-1 &&
       k-1 <= mwavefront->hi_base) {
     return mwavefront->offsets[k-1] + 1;
   } else {
-    return AFFINE_WAVEFRONT_OFFSET_NULL;
+    return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   }
 }
 awf_offset_t backtrace_wavefront_trace_insertion_extend_offset(
@@ -114,14 +114,14 @@ awf_offset_t backtrace_wavefront_trace_insertion_extend_offset(
     const int score,
     const int k,
     const awf_offset_t offset) {
-  if (score < 0) return AFFINE_WAVEFRONT_OFFSET_NULL;
+  if (score < 0) return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   affine_wavefront_t* const iwavefront = affine_wavefronts->iwavefronts[score];
   if (iwavefront != NULL &&
       iwavefront->lo_base <= k-1 &&
       k-1 <= iwavefront->hi_base) {
     return iwavefront->offsets[k-1] + 1;
   } else {
-    return AFFINE_WAVEFRONT_OFFSET_NULL;
+    return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   }
 }
 awf_offset_t backtrace_wavefront_trace_mismatch_offset(
@@ -129,14 +129,14 @@ awf_offset_t backtrace_wavefront_trace_mismatch_offset(
     const int score,
     const int k,
     const awf_offset_t offset) {
-  if (score < 0) return AFFINE_WAVEFRONT_OFFSET_NULL;
+  if (score < 0) return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront != NULL &&
       mwavefront->lo_base <= k &&
       k <= mwavefront->hi_base) {
     return mwavefront->offsets[k] + 1;
   } else {
-    return AFFINE_WAVEFRONT_OFFSET_NULL;
+    return AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL;
   }
 }
 /*
@@ -236,8 +236,8 @@ int affine_wavefronts_backtrace_compute_max_matches(
     const int k,
     awf_offset_t offset) {
   // Locate position
-  int v = AFFINE_WAVEFRONT_V(k,offset);
-  int h = AFFINE_WAVEFRONT_H(k,offset);
+  int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+  int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
   // Check matches
   int num_matches = 0;
   while (v>0 && h>0 && pattern[--v] == text[--h]) ++num_matches;
@@ -256,9 +256,9 @@ void affine_wavefronts_backtrace_matches__check(
   int i;
   for (i=0;i<num_matches;++i) {
     // DEBUG
-#ifdef AFFINE_WAVEFRONT_DEBUG
-    const int v = AFFINE_WAVEFRONT_V(k,offset);
-    const int h = AFFINE_WAVEFRONT_H(k,offset);
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
+    const int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+    const int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
     if (!valid_location) { // Check inside table
       fprintf(stderr,"Backtrace error: Match outside DP-Table\n");
       exit(1);
@@ -298,7 +298,7 @@ void affine_wavefronts_backtrace(
   const affine_penalties_t* const wavefront_penalties =
       &(affine_wavefronts->penalties.wavefront_penalties);
   edit_cigar_t* const cigar = &affine_wavefronts->edit_cigar;
-  const int alignment_k = AFFINE_WAVEFRONT_DIAGONAL(text_length,pattern_length);
+  const int alignment_k = AFFINE_LAMBDA_WAVEFRONT_DIAGONAL(text_length,pattern_length);
   // Compute starting location
   int score = alignment_score;
   int k = alignment_k;
@@ -306,8 +306,8 @@ void affine_wavefronts_backtrace(
   bool valid_location = affine_wavefronts_valid_location(k,offset,pattern_length,text_length);
   // Trace the alignment back
   backtrace_wavefront_type backtrace_type = backtrace_wavefront_M;
-  int v = AFFINE_WAVEFRONT_V(k,offset);
-  int h = AFFINE_WAVEFRONT_H(k,offset);
+  int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+  int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
   while (v > 0 && h > 0 && score > 0) {
     // Check location
     if (!valid_location) {
@@ -321,15 +321,15 @@ void affine_wavefronts_backtrace(
     const int gap_extend_score = score - wavefront_penalties->gap_extension;
     const int mismatch_score = score - wavefront_penalties->mismatch;
     // Compute source offsets
-    const awf_offset_t del_ext = (backtrace_type == backtrace_wavefront_I) ? AFFINE_WAVEFRONT_OFFSET_NULL:
+    const awf_offset_t del_ext = (backtrace_type == backtrace_wavefront_I) ? AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL:
         backtrace_wavefront_trace_deletion_extend_offset(affine_wavefronts,gap_extend_score,k,offset);
-    const awf_offset_t del_open = (backtrace_type == backtrace_wavefront_I) ? AFFINE_WAVEFRONT_OFFSET_NULL:
+    const awf_offset_t del_open = (backtrace_type == backtrace_wavefront_I) ? AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL:
         backtrace_wavefront_trace_deletion_open_offset(affine_wavefronts,gap_open_score,k,offset);
-    const awf_offset_t ins_ext = (backtrace_type == backtrace_wavefront_D) ? AFFINE_WAVEFRONT_OFFSET_NULL:
+    const awf_offset_t ins_ext = (backtrace_type == backtrace_wavefront_D) ? AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL:
         backtrace_wavefront_trace_insertion_extend_offset(affine_wavefronts,gap_extend_score,k,offset);
-    const awf_offset_t ins_open = (backtrace_type == backtrace_wavefront_D) ? AFFINE_WAVEFRONT_OFFSET_NULL:
+    const awf_offset_t ins_open = (backtrace_type == backtrace_wavefront_D) ? AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL:
         backtrace_wavefront_trace_insertion_open_offset(affine_wavefronts,gap_open_score,k,offset);
-    const awf_offset_t misms = (backtrace_type != backtrace_wavefront_M) ? AFFINE_WAVEFRONT_OFFSET_NULL:
+    const awf_offset_t misms = (backtrace_type != backtrace_wavefront_M) ? AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL:
         backtrace_wavefront_trace_mismatch_offset(affine_wavefronts,mismatch_score,k,offset);
     // Compute maximum offset
     const awf_offset_t max_del = MAX(del_ext,del_open);
@@ -384,8 +384,8 @@ void affine_wavefronts_backtrace(
       exit(1);
     }
     // Update coordinates
-    v = AFFINE_WAVEFRONT_V(k,offset);
-    h = AFFINE_WAVEFRONT_H(k,offset);
+    v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+    h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
   }
   // Account for last operations
   if (score == 0) {

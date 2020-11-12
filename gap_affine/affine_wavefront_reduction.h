@@ -30,8 +30,8 @@
  *   strategies (adaptive or banded strategies)
  */
 
-#ifndef AFFINE_WAVEFRONT_REDUCTION_H_
-#define AFFINE_WAVEFRONT_REDUCTION_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_
+#define AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_
 
 #include "utils/commons.h"
 
@@ -62,4 +62,4 @@ void affine_wavefronts_reduction_set_dynamic(
     const int min_wavefront_length,
     const int max_distance_threshold);
 
-#endif /* AFFINE_WAVEFRONT_REDUCTION_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_ */

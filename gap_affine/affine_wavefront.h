@@ -30,8 +30,8 @@
  *   alignment (Main module)
  */
 
-#ifndef AFFINE_WAVEFRONT_H_
-#define AFFINE_WAVEFRONT_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_H_
+#define AFFINE_LAMBDA_WAVEFRONT_H_
 
 
 #include "utils/commons.h"
@@ -46,37 +46,37 @@
 /*
  * Debug
  */
-//#define AFFINE_WAVEFRONT_DEBUG
-//#define AFFINE_WAVEFRONT_STATS
+//#define AFFINE_LAMBDA_WAVEFRONT_DEBUG
+//#define AFFINE_LAMBDA_WAVEFRONT_STATS
 
 /*
  * Constants
  */
-#define AFFINE_WAVEFRONT_OFFSET_NULL (-10)
-#define AFFINE_WAVEFRONT_K_NULL      (INT_MAX/2)
+#define AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL (-10)
+#define AFFINE_LAMBDA_WAVEFRONT_K_NULL      (INT_MAX/2)
 
 /*
  * Translate k and offset to coordinates h,v
  */
-#define AFFINE_WAVEFRONT_V(k,offset) ((offset)-(k))
-#define AFFINE_WAVEFRONT_H(k,offset) (offset)
+#define AFFINE_LAMBDA_WAVEFRONT_V(k,offset) ((offset)-(k))
+#define AFFINE_LAMBDA_WAVEFRONT_H(k,offset) (offset)
 
-#define AFFINE_WAVEFRONT_DIAGONAL(h,v) ((h)-(v))
-#define AFFINE_WAVEFRONT_OFFSET(h,v)   (h)
+#define AFFINE_LAMBDA_WAVEFRONT_DIAGONAL(h,v) ((h)-(v))
+#define AFFINE_LAMBDA_WAVEFRONT_OFFSET(h,v)   (h)
 
 /*
  * Offset size
  */
-//#define AFFINE_WAVEFRONT_W8
-//#define AFFINE_WAVEFRONT_W16
-#define AFFINE_WAVEFRONT_W32
+//#define AFFINE_LAMBDA_WAVEFRONT_W8
+//#define AFFINE_LAMBDA_WAVEFRONT_W16
+#define AFFINE_LAMBDA_WAVEFRONT_W32
 
-#ifdef AFFINE_WAVEFRONT_W8
+#ifdef AFFINE_LAMBDA_WAVEFRONT_W8
   typedef int8_t awf_offset_t;
 #else
-  #ifdef AFFINE_WAVEFRONT_W16
+  #ifdef AFFINE_LAMBDA_WAVEFRONT_W16
     typedef int16_t awf_offset_t;
-  #else // AFFINE_WAVEFRONT_W32
+  #else // AFFINE_LAMBDA_WAVEFRONT_W32
     typedef int32_t awf_offset_t;
   #endif
 #endif
@@ -93,7 +93,7 @@ typedef struct {
   int hi_base;                // Highest diagonal before reduction (inclusive)
   // Offsets
   awf_offset_t* offsets;      // Offsets
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
   awf_offset_t* offsets_base; // Offsets increment
 #endif
 } affine_wavefront_t;
@@ -128,7 +128,7 @@ typedef struct {
   // STATS
   wavefronts_stats_t* wavefronts_stats; // Stats
   // DEBUG
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
   affine_table_t gap_affine_table;             // DP-Table encoded by the wavefronts
 #endif
 } affine_wavefronts_t;
@@ -182,4 +182,4 @@ affine_wavefront_t* affine_wavefronts_allocate_wavefront(
     const int lo_base,
     const int hi_base);
 
-#endif /* AFFINE_WAVEFRONT_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_H_ */

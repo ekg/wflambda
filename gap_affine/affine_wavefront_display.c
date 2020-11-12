@@ -42,10 +42,10 @@ void affine_wavefronts_set_edit_table(
     const int k,
     const awf_offset_t offset,
     const int score) {
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
   if (offset < 0) return;
-  const int h = AFFINE_WAVEFRONT_H(k,offset);
-  const int v = AFFINE_WAVEFRONT_V(k,offset);
+  const int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
+  const int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
   if (0 <= v && v <= pattern_length &&
       0 <= h && h <= text_length) {
     if (affine_wavefronts->gap_affine_table.columns[h][v].M == -1) {
@@ -70,7 +70,7 @@ void affine_wavefronts_set_edit_table(
 /*
  * Display
  */
-#define AFFINE_WAVEFRONTS_PRINT_ELEMENT(wavefront,k) \
+#define AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(wavefront,k) \
   /* Check limits */ \
   if (wavefront!=NULL && wavefront->lo <= k && k <= wavefront->hi) { \
     if (wavefront->offsets[k] >= 0) { \
@@ -123,11 +123,11 @@ void affine_wavefronts_print_wavefront(
     if (affine_wavefronts->iwavefronts != NULL) {
       affine_wavefront_t* const iwavefront = affine_wavefronts->iwavefronts[current_score];
       affine_wavefront_t* const dwavefront = affine_wavefronts->dwavefronts[current_score];
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(iwavefront,k);
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(dwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(iwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(dwavefront,k);
     } else {
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
     }
     fprintf(stream,"\n");
   }
@@ -179,9 +179,9 @@ void affine_wavefronts_print_wavefronts(
       affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[s];
       affine_wavefront_t* const iwavefront = affine_wavefronts->iwavefronts[s];
       affine_wavefront_t* const dwavefront = affine_wavefronts->dwavefronts[s];
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(iwavefront,k);
-      AFFINE_WAVEFRONTS_PRINT_ELEMENT(dwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(mwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(iwavefront,k);
+      AFFINE_LAMBDA_WAVEFRONTS_PRINT_ELEMENT(dwavefront,k);
       fprintf(stream," ");
     }
     fprintf(stream,"\n");
@@ -226,7 +226,7 @@ void affine_wavefronts_print_wavefronts_pretty(
       // Fetch offset
       awf_offset_t offsets_sub = mwavefront->offsets[k];
       awf_offset_t offsets_sub_base = offsets_sub;
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
       offsets_sub_base = mwavefront->offsets_base[k];
 #endif
       if (offsets_sub < 0) continue;
@@ -261,7 +261,7 @@ void affine_wavefronts_debug_step(
     const char* const pattern,
     const char* const text,
     const int score) {
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
 //  affine_table_print(stderr,&affine_wavefronts->gap_affine_table,pattern,text);
 //  affine_wavefronts_print_wavefronts_pretty(stderr,affine_wavefronts,score);
 //  affine_wavefronts_print_wavefronts(stderr,affine_wavefronts,score);

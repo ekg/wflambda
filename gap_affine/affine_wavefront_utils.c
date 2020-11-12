@@ -66,8 +66,8 @@ int affine_wavefronts_compute_distance(
     const int text_length,
     const awf_offset_t offset,
     const int k) {
-  const int v = AFFINE_WAVEFRONT_V(k,offset);
-  const int h = AFFINE_WAVEFRONT_H(k,offset);
+  const int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+  const int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
   const int left_v = pattern_length - v;
   const int left_h = text_length - h;
   return MAX(left_v,left_h);
@@ -86,8 +86,8 @@ bool affine_wavefront_end_reached(
     const int text_length,
     const int score) {
   // Parameters
-  const int alignment_k = AFFINE_WAVEFRONT_DIAGONAL(text_length,pattern_length);
-  const int alignment_offset = AFFINE_WAVEFRONT_OFFSET(text_length,pattern_length);
+  const int alignment_k = AFFINE_LAMBDA_WAVEFRONT_DIAGONAL(text_length,pattern_length);
+  const int alignment_offset = AFFINE_LAMBDA_WAVEFRONT_OFFSET(text_length,pattern_length);
   // Fetch wavefront and check termination
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront!=NULL) {

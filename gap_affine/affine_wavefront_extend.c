@@ -79,7 +79,7 @@ void affine_wavefronts_reduce_wavefronts(
   // Parameters
   const int min_wavefront_length = affine_wavefronts->reduction.min_wavefront_length;
   const int max_distance_threshold = affine_wavefronts->reduction.max_distance_threshold;
-  const int alignment_k = AFFINE_WAVEFRONT_DIAGONAL(text_length,pattern_length);
+  const int alignment_k = AFFINE_LAMBDA_WAVEFRONT_DIAGONAL(text_length,pattern_length);
   // Fetch m-wavefront
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront==NULL) return;
@@ -124,7 +124,7 @@ void affine_wavefronts_extend_mwavefront_epiloge(
   WAVEFRONT_STATS_COUNTER_ADD(affine_wavefronts,wf_extensions,
       affine_wavefronts->mwavefronts[score]->hi-affine_wavefronts->mwavefronts[score]->lo+1);
   // DEBUG
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
   // Parameters
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   int k;
@@ -154,8 +154,8 @@ void affine_wavefronts_extend_mwavefront_compute_packed(
   for (k=mwavefront->lo;k<=mwavefront->hi;++k) {
     // Fetch positions & offset
     const awf_offset_t offset = offsets[k];
-    const int v = AFFINE_WAVEFRONT_V(k,offset);
-    const int h = AFFINE_WAVEFRONT_H(k,offset);
+    const int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+    const int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
     // Fetch pattern/text blocks
     uint64_t* pattern_blocks = (uint64_t*)(pattern+v);
     uint64_t* text_blocks = (uint64_t*)(text+h);
@@ -202,8 +202,8 @@ void affine_wavefronts_extend_mwavefront_compute(
   for (k=mwavefront->lo;k<=mwavefront->hi;++k) {
     // Exact extend
     const awf_offset_t offset = offsets[k];
-    int v = AFFINE_WAVEFRONT_V(k,offset);
-    int h = AFFINE_WAVEFRONT_H(k,offset);
+    int v = AFFINE_LAMBDA_WAVEFRONT_V(k,offset);
+    int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
     while (pattern[v++]==text[h++]) {
       ++(offsets[k]);
     }

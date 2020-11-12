@@ -29,8 +29,8 @@
  * DESCRIPTION: Gap-Affine penalties
  */
 
-#ifndef AFFINE_PENALTIES_H_
-#define AFFINE_PENALTIES_H_
+#ifndef AFFINE_LAMBDA_PENALTIES_H_
+#define AFFINE_LAMBDA_PENALTIES_H_
 
 #include "utils/commons.h"
 
@@ -41,4 +41,4 @@ typedef struct {
   int gap_extension;      // (Penalty representation; usually E > 0)
 } affine_penalties_t;
 
-#endif /* AFFINE_PENALTIES_H_ */
+#endif /* AFFINE_LAMBDA_PENALTIES_H_ */

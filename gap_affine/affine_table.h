@@ -29,8 +29,8 @@
  * DESCRIPTION: Gap-affine DP table
  */
 
-#ifndef AFFINE_TABLE_H_
-#define AFFINE_TABLE_H_
+#ifndef AFFINE_LAMBDA_TABLE_H_
+#define AFFINE_LAMBDA_TABLE_H_
 
 #include "utils/commons.h"
 #include "edit/edit_cigar.h"
@@ -75,4 +75,4 @@ void affine_table_print_extended(
     const char* const pattern,
     const char* const text);
 
-#endif /* AFFINE_TABLE_H_ */
+#endif /* AFFINE_LAMBDA_TABLE_H_ */

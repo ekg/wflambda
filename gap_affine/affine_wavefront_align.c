@@ -106,12 +106,12 @@ void affine_wavefronts_compute_limits(
 /*
  * Compute wavefront offsets
  */
-#define AFFINE_WAVEFRONT_DECLARE(wavefront,prefix) \
+#define AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront,prefix) \
   const awf_offset_t* const prefix ## _offsets = wavefront->offsets; \
   const int prefix ## _hi = wavefront->hi; \
   const int prefix ## _lo = wavefront->lo
-#define AFFINE_WAVEFRONT_COND_FETCH(prefix,index,value) \
-  (prefix ## _lo <= (index) && (index) <= prefix ## _hi) ? (value) : AFFINE_WAVEFRONT_OFFSET_NULL
+#define AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(prefix,index,value) \
+  (prefix ## _lo <= (index) && (index) <= prefix ## _hi) ? (value) : AFFINE_LAMBDA_WAVEFRONT_OFFSET_NULL
 /*
  * Compute wavefront offsets
  */
@@ -121,10 +121,10 @@ void affine_wavefronts_compute_offsets_idm(
     const int lo,
     const int hi) {
   // Parameters
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_iwavefront_ext,i_ext);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_dwavefront_ext,d_ext);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_iwavefront_ext,i_ext);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_dwavefront_ext,d_ext);
   awf_offset_t* const out_ioffsets = wavefront_set->out_iwavefront->offsets;
   awf_offset_t* const out_doffsets = wavefront_set->out_dwavefront->offsets;
   awf_offset_t* const out_moffsets = wavefront_set->out_mwavefront->offsets;
@@ -142,17 +142,17 @@ void affine_wavefronts_compute_offsets_idm(
   int k;
   for (k=lo;k<max_lo;++k) {
     // Update I
-    const awf_offset_t ins_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
-    const awf_offset_t ins_i = AFFINE_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
+    const awf_offset_t ins_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
+    const awf_offset_t ins_i = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
     const awf_offset_t ins = MAX(ins_g,ins_i) + 1;
     out_ioffsets[k] = ins;
     // Update D
-    const awf_offset_t del_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
-    const awf_offset_t del_d = AFFINE_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
+    const awf_offset_t del_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
+    const awf_offset_t del_d = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
     const awf_offset_t del = MAX(del_g,del_d);
     out_doffsets[k] = del;
     // Update M
-    const awf_offset_t sub = AFFINE_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
+    const awf_offset_t sub = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
     out_moffsets[k] = MAX(del,MAX(sub,ins));
   }
   // Compute score wavefronts (core)
@@ -181,17 +181,17 @@ void affine_wavefronts_compute_offsets_idm(
   // Compute score wavefronts (epilogue)
   for (k=min_hi+1;k<=hi;++k) {
     // Update I
-    const awf_offset_t ins_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
-    const awf_offset_t ins_i = AFFINE_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
+    const awf_offset_t ins_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
+    const awf_offset_t ins_i = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
     const awf_offset_t ins = MAX(ins_g,ins_i) + 1;
     out_ioffsets[k] = ins;
     // Update D
-    const awf_offset_t del_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
-    const awf_offset_t del_d = AFFINE_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
+    const awf_offset_t del_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
+    const awf_offset_t del_d = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
     const awf_offset_t del = MAX(del_g,del_d);
     out_doffsets[k] = del;
     // Update M
-    const awf_offset_t sub = AFFINE_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
+    const awf_offset_t sub = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
     out_moffsets[k] = MAX(del,MAX(sub,ins));
   }
 }
@@ -201,9 +201,9 @@ void affine_wavefronts_compute_offsets_im(
     const int lo,
     const int hi) {
   // Parameters
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_iwavefront_ext,i_ext);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_iwavefront_ext,i_ext);
   awf_offset_t* const out_ioffsets = wavefront_set->out_iwavefront->offsets;
   awf_offset_t* const out_moffsets = wavefront_set->out_mwavefront->offsets;
   // Compute score wavefronts
@@ -215,12 +215,12 @@ void affine_wavefronts_compute_offsets_im(
 #endif
   for (k=lo;k<=hi;++k) {
     // Update I
-    const awf_offset_t ins_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
-    const awf_offset_t ins_i = AFFINE_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
+    const awf_offset_t ins_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k-1,m_gap_offsets[k-1]);
+    const awf_offset_t ins_i = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(i_ext,k-1,i_ext_offsets[k-1]);
     const awf_offset_t ins = MAX(ins_g,ins_i) + 1;
     out_ioffsets[k] = ins;
     // Update M
-    const awf_offset_t sub = AFFINE_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
+    const awf_offset_t sub = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
     out_moffsets[k] = MAX(ins,sub);
   }
 }
@@ -230,9 +230,9 @@ void affine_wavefronts_compute_offsets_dm(
     const int lo,
     const int hi) {
   // Parameters
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_dwavefront_ext,d_ext);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_gap,m_gap);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_dwavefront_ext,d_ext);
   awf_offset_t* const out_doffsets = wavefront_set->out_dwavefront->offsets;
   awf_offset_t* const out_moffsets = wavefront_set->out_mwavefront->offsets;
   // Compute score wavefronts
@@ -244,12 +244,12 @@ void affine_wavefronts_compute_offsets_dm(
 #endif
   for (k=lo;k<=hi;++k) {
     // Update D
-    const awf_offset_t del_g = AFFINE_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
-    const awf_offset_t del_d = AFFINE_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
+    const awf_offset_t del_g = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_gap,k+1,m_gap_offsets[k+1]);
+    const awf_offset_t del_d = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(d_ext,k+1,d_ext_offsets[k+1]);
     const awf_offset_t del = MAX(del_g,del_d);
     out_doffsets[k] = del;
     // Update M
-    const awf_offset_t sub = AFFINE_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
+    const awf_offset_t sub = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
     out_moffsets[k] = MAX(del,sub);
   }
 }
@@ -259,7 +259,7 @@ void affine_wavefronts_compute_offsets_m(
     const int lo,
     const int hi) {
   // Parameters
-  AFFINE_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
+  AFFINE_LAMBDA_WAVEFRONT_DECLARE(wavefront_set->in_mwavefront_sub,m_sub);
   awf_offset_t* const out_moffsets = wavefront_set->out_mwavefront->offsets;
   // Compute score wavefronts
   int k;
@@ -270,7 +270,7 @@ void affine_wavefronts_compute_offsets_m(
 #endif
   for (k=lo;k<=hi;++k) {
     // Update M
-    out_moffsets[k] = AFFINE_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
+    out_moffsets[k] = AFFINE_LAMBDA_WAVEFRONT_COND_FETCH(m_sub,k,m_sub_offsets[k]+1);
   }
 }
 /*
@@ -323,7 +323,7 @@ void affine_wavefronts_compute_wavefront(
   // Account for WF operations performed
   WAVEFRONT_STATS_COUNTER_ADD(affine_wavefronts,wf_operations,hi-lo+1);
   // DEBUG
-#ifdef AFFINE_WAVEFRONT_DEBUG
+#ifdef AFFINE_LAMBDA_WAVEFRONT_DEBUG
   // Copy offsets base before extension (for display purposes)
   affine_wavefront_t* const mwavefront = affine_wavefronts->mwavefronts[score];
   if (mwavefront!=NULL) {
@@ -347,7 +347,7 @@ void affine_wavefronts_align(
   strings_padded_t* const strings_padded =
       strings_padded_new_rhomb(
           pattern,pattern_length,text,text_length,
-          AFFINE_WAVEFRONT_PADDING,affine_wavefronts->mm_allocator);
+          AFFINE_LAMBDA_WAVEFRONT_PADDING,affine_wavefronts->mm_allocator);
   // Initialize wavefront
   affine_wavefront_initialize(affine_wavefronts);
   // Compute wavefronts for increasing score

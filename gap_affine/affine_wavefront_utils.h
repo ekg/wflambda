@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA support utilities
  */
 
-#ifndef AFFINE_WAVEFRONT_UTILS_H_
-#define AFFINE_WAVEFRONT_UTILS_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_UTILS_H_
+#define AFFINE_LAMBDA_WAVEFRONT_UTILS_H_
 
 #include "gap_affine/affine_wavefront.h"
 
@@ -66,4 +66,4 @@ bool affine_wavefront_end_reached(
     const int text_length,
     const int score);
 
-#endif /* AFFINE_WAVEFRONT_UTILS_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_UTILS_H_ */

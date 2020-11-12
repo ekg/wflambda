@@ -29,15 +29,15 @@
  * DESCRIPTION: WFA extend exact-matches component
  */
 
-#ifndef AFFINE_WAVEFRONT_EXTEND_H_
-#define AFFINE_WAVEFRONT_EXTEND_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_EXTEND_H_
+#define AFFINE_LAMBDA_WAVEFRONT_EXTEND_H_
 
 #include "gap_affine/affine_wavefront.h"
 
 /*
  * Constants
  */
-#define AFFINE_WAVEFRONT_PADDING  10 // (-AFFINE_WAVEFRONT_OFFSET_NULL)
+#define AFFINE_LAMBDA_WAVEFRONT_PADDING  10 // (-AFFINE_WAVEFRONT_OFFSET_NULL)
 
 /*
  * Gap-Affine Wavefront exact extension
@@ -50,4 +50,4 @@ void affine_wavefronts_extend_wavefront_packed(
     const int text_length,
     const int score);
 
-#endif /* AFFINE_WAVEFRONT_EXTEND_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_EXTEND_H_ */

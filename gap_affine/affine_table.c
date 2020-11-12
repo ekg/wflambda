@@ -67,7 +67,7 @@ void affine_table_free(
 /*
  * Display
  */
-#define AFFINE_TABLE_PRINT_VALUE(value)  \
+#define AFFINE_LAMBDA_TABLE_PRINT_VALUE(value)  \
   if (value >= 0 && value < SCORE_MAX) { \
     fprintf(stream,"%2d",value); \
   } else { \
@@ -89,7 +89,7 @@ void affine_table_print(
   fprintf(stream,"\n ");
   for (i=0;i<table->num_columns;++i) {
     fprintf(stream," ");
-    AFFINE_TABLE_PRINT_VALUE(dp[i][0].M);
+    AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[i][0].M);
   }
   fprintf(stream,"\n");
   // Print Rows
@@ -97,7 +97,7 @@ void affine_table_print(
     fprintf(stream,"%c",pattern[i-1]);
     for (j=0;j<table->num_columns;++j) {
       fprintf(stream," ");
-      AFFINE_TABLE_PRINT_VALUE(dp[j][i].M);
+      AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[j][i].M);
     }
     fprintf(stream,"\n");
   }
@@ -119,11 +119,11 @@ void affine_table_print_extended(
   fprintf(stream,"\n ");
   for (i=0;i<table->num_columns;++i) {
     fprintf(stream," ");
-    AFFINE_TABLE_PRINT_VALUE(dp[i][0].M);
+    AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[i][0].M);
     fprintf(stream,"{");
-    AFFINE_TABLE_PRINT_VALUE(dp[i][0].I);
+    AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[i][0].I);
     fprintf(stream,",");
-    AFFINE_TABLE_PRINT_VALUE(dp[i][0].D);
+    AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[i][0].D);
     fprintf(stream,"} ");
   }
   fprintf(stream,"\n");
@@ -132,11 +132,11 @@ void affine_table_print_extended(
     fprintf(stream,"%c",pattern[i-1]);
     for (j=0;j<table->num_columns;++j) {
       fprintf(stream," ");
-      AFFINE_TABLE_PRINT_VALUE(dp[j][i].M);
+      AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[j][i].M);
       fprintf(stream,"{");
-      AFFINE_TABLE_PRINT_VALUE(dp[j][i].I);
+      AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[j][i].I);
       fprintf(stream,",");
-      AFFINE_TABLE_PRINT_VALUE(dp[j][i].D);
+      AFFINE_LAMBDA_TABLE_PRINT_VALUE(dp[j][i].D);
       fprintf(stream,"} ");
     }
     fprintf(stream,"\n");

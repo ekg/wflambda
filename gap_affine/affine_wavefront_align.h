@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA main algorithm
  */
 
-#ifndef AFFINE_WAVEFRONT_ALIGN_H_
-#define AFFINE_WAVEFRONT_ALIGN_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_
+#define AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_
 
 #include "gap_affine/affine_wavefront.h"
 #include "utils/commons.h"
@@ -45,4 +45,4 @@ void affine_wavefronts_align(
     const char* const text,
     const int text_length);
 
-#endif /* AFFINE_WAVEFRONT_ALIGN_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_ */

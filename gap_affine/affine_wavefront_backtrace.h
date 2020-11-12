@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA extend backtrace component
  */
 
-#ifndef AFFINE_WAVEFRONT_BACKTRACE_H_
-#define AFFINE_WAVEFRONT_BACKTRACE_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
+#define AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
 
 #include "gap_affine/affine_wavefront.h"
 
@@ -64,4 +64,4 @@ void affine_wavefronts_backtrace(
     const int text_length,
     const int alignment_score);
 
-#endif /* AFFINE_WAVEFRONT_BACKTRACE_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_ */

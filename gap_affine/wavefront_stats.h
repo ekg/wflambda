@@ -39,7 +39,7 @@
 /*
  * Stats
  */
-#ifdef AFFINE_WAVEFRONT_STATS
+#ifdef AFFINE_LAMBDA_WAVEFRONT_STATS
   #define WAVEFRONT_STATS_COUNTER_ADD(wavefronts,counter,amount) \
     if (wavefronts->wf_stats!=NULL) counter_add(&(wavefronts->wavefronts_stats->counter),(amount))
   #define WAVEFRONT_STATS_TIMER_START(wavefronts,timer) \

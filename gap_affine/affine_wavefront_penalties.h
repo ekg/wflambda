@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA support functions for handling penalties scores
  */
 
-#ifndef AFFINE_WAVEFRONT_PENALTIES_H_
-#define AFFINE_WAVEFRONT_PENALTIES_H_
+#ifndef AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_
+#define AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_
 
 #include "utils/commons.h"
 #include "gap_affine/affine_penalties.h"
@@ -74,4 +74,4 @@ void affine_penalties_shift(
     const bool pair_odd_heuristic);
 
 
-#endif /* AFFINE_WAVEFRONT_PENALTIES_H_ */
+#endif /* AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_ */
