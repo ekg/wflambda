@@ -29,8 +29,8 @@
  * DESCRIPTION: Gap-lineal alignment algorithms wrapper
  */
 
-#include "benchmark/benchmark_gap_lineal.h"
-#include "gap_lineal/nw.h"
+#include "benchmark/benchmark_gap_lineal.hpp"
+#include "gap_lineal/nw.hpp"
 
 /*
  * Benchmark NW

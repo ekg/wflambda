@@ -31,7 +31,7 @@
  *   and dispatching memory segments in order.
  */
 
-#include "mm_allocator.h"
+#include "mm_allocator.hpp"
 
 /*
  * Debug

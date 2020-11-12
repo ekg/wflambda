@@ -29,18 +29,18 @@
  * DESCRIPTION: Wavefront Alignments Algorithms benchmarking tool
  */
 
-#include "utils/commons.h"
-#include "system/profiler_timer.h"
+#include "utils/commons.hpp"
+#include "system/profiler_timer.hpp"
 
-#include "edit/edit_table.h"
-#include "edit/edit_dp.h"
-#include "gap_lineal/nw.h"
-#include "gap_affine/affine_wavefront.h"
-#include "gap_affine/swg.h"
+#include "edit/edit_table.hpp"
+#include "edit/edit_dp.hpp"
+#include "gap_lineal/nw.hpp"
+#include "gap_affine/affine_wavefront.hpp"
+#include "gap_affine/swg.hpp"
 
-#include "benchmark/benchmark_edit.h"
-#include "benchmark/benchmark_gap_affine.h"
-#include "benchmark/benchmark_gap_lineal.h"
+#include "benchmark/benchmark_edit.hpp"
+#include "benchmark/benchmark_gap_affine.hpp"
+#include "benchmark/benchmark_gap_lineal.hpp"
 
 /*
  * Algorithms
@@ -314,14 +314,14 @@ void parse_arguments(int argc,char** argv) {
     { "lineal-penalties", required_argument, 0, 'p' },
     { "affine-penalties", required_argument, 0, 'g' },
     /* Specifics */
-    { "bandwidth", required_argument, 0, 1000 },
-    { "minimum-wavefront-length", required_argument, 0, 1002 },
+    { "bandwid.hpp", required_argument, 0, 1000 },
+    { "minimum-wavefront-leng.hpp", required_argument, 0, 1002 },
     { "maximum-difference-distance", required_argument, 0, 1003 },
     /* Misc */
     { "progress", required_argument, 0, 'P' },
     { "check", optional_argument, 0, 'c' },
     { "check-distance", required_argument, 0, 2000 },
-    { "check-bandwidth", required_argument, 0, 2001 },
+    { "check-bandwid.hpp", required_argument, 0, 2001 },
     { "verbose", no_argument, 0, 'v' },
     { "help", no_argument, 0, 'h' },
     { 0, 0, 0, 0 } };
@@ -331,7 +331,7 @@ void parse_arguments(int argc,char** argv) {
     exit(0);
   }
   while (1) {
-    c=getopt_long(argc,argv,"a:i:p:g:P:c:vh",long_options,&option_index);
+    c=getopt_long(argc,argv,"a:i:p:g:P:c:.hpp",long_options,&option_index);
     if (c==-1) break;
     switch (c) {
     /*

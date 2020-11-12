@@ -33,7 +33,7 @@
 #ifndef DNA_TEXT_H_
 #define DNA_TEXT_H_
 
-#include "utils/commons.h"
+#include "utils/commons.hpp"
 
 /*
  * Range of DNA Nucleotides

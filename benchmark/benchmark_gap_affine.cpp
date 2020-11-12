@@ -29,15 +29,15 @@
  * DESCRIPTION: Gap-affine alignment algorithms wrapper (including WFA)
  */
 
-#include "benchmark/benchmark_gap_affine.h"
+#include "benchmark/benchmark_gap_affine.hpp"
 
-#include "gap_affine/affine_wavefront_align.h"
-#include "gap_affine/affine_table.h"
+#include "gap_affine/affine_wavefront_align.hpp"
+#include "gap_affine/affine_table.hpp"
 
 // Gap affine modules
-#include "gap_affine/affine_wavefront.h"
-#include "gap_affine/affine_wavefront_display.h"
-#include "gap_affine/swg.h"
+#include "gap_affine/affine_wavefront.hpp"
+#include "gap_affine/affine_wavefront_display.hpp"
+#include "gap_affine/swg.hpp"
 
 /*
  * Benchmark SWG

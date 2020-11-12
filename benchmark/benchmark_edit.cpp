@@ -29,8 +29,8 @@
  * DESCRIPTION: Edit-distance alignment algorithms wrapper
  */
 
-#include "benchmark/benchmark_utils.h"
-#include "edit/edit_dp.h"
+#include "benchmark/benchmark_utils.hpp"
+#include "edit/edit_dp.hpp"
 
 /*
  * Benchmark Edit

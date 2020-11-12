@@ -29,8 +29,8 @@
  * DESCRIPTION: Gap-affine DP table
  */
 
-#include "edit/edit_table.h"
-#include "gap_affine/affine_table.h"
+#include "edit/edit_table.hpp"
+#include "gap_affine/affine_table.hpp"
 
 /*
  * Gap-Affine Table Setup

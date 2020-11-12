@@ -29,7 +29,7 @@
  * DESCRIPTION: Module to track relevant stats from the WFA
  */
 
-#include "gap_affine/wavefront_stats.h"
+#include "gap_affine/wavefront_stats.hpp"
 
 /*
  * Setup

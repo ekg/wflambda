@@ -32,8 +32,8 @@
 #ifndef BENCHMARK_GAP_LINEAL_H_
 #define BENCHMARK_GAP_LINEAL_H_
 
-#include "gap_lineal/nw.h"
-#include "benchmark/benchmark_utils.h"
+#include "gap_lineal/nw.hpp"
+#include "benchmark/benchmark_utils.hpp"
 
 /*
  * Benchmark NW

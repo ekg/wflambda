@@ -29,7 +29,7 @@
  * DESCRIPTION: WFA support utilities
  */
 
-#include "gap_affine/affine_wavefront_utils.h"
+#include "gap_affine/affine_wavefront_utils.hpp"
 
 /*
  * Accessors

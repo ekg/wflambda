@@ -29,7 +29,7 @@
  * DESCRIPTION: WFA extend backtrace component
  */
 
-#include "gap_affine/affine_wavefront_backtrace.h"
+#include "gap_affine/affine_wavefront_backtrace.hpp"
 
 /*
  * Backtrace Detect Limits

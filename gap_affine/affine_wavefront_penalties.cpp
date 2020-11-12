@@ -29,7 +29,7 @@
  * DESCRIPTION: WFA support functions for handling penalties scores
  */
 
-#include "gap_affine/affine_wavefront_penalties.h"
+#include "gap_affine/affine_wavefront_penalties.hpp"
 
 /*
  * Setup

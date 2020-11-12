@@ -32,11 +32,11 @@
 #ifndef BENCHMARK_UTILS_H_
 #define BENCHMARK_UTILS_H_
 
-#include "utils/commons.h"
-#include "system/mm_allocator.h"
-#include "system/profiler_timer.h"
-#include "edit/edit_table.h"
-#include "gap_affine/wavefront_stats.h"
+#include "utils/commons.hpp"
+#include "system/mm_allocator.hpp"
+#include "system/profiler_timer.hpp"
+#include "edit/edit_table.hpp"
+#include "gap_affine/wavefront_stats.hpp"
 
 /*
  * Constants

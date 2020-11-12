@@ -30,7 +30,7 @@
  *   strategies (adaptive or banded strategies)
  */
 
-#include "gap_affine/affine_wavefront_reduction.h"
+#include "gap_affine/affine_wavefront_reduction.hpp"
 
 /*
  * Setup

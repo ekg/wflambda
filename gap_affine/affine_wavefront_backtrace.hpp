@@ -32,7 +32,7 @@
 #ifndef AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
 #define AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_
 
-#include "gap_affine/affine_wavefront.h"
+#include "gap_affine/affine_wavefront.hpp"
 
 /*
  * Sequences DTO

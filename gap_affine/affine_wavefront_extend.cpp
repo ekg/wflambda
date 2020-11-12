@@ -29,11 +29,11 @@
  * DESCRIPTION: WFA extend exact-matches component
  */
 
-#include "gap_affine/affine_wavefront_display.h"
-#include "gap_affine/affine_wavefront_extend.h"
-#include "gap_affine/affine_wavefront_reduction.h"
-#include "gap_affine/affine_wavefront_utils.h"
-#include "utils/string_padded.h"
+#include "gap_affine/affine_wavefront_display.hpp"
+#include "gap_affine/affine_wavefront_extend.hpp"
+#include "gap_affine/affine_wavefront_reduction.hpp"
+#include "gap_affine/affine_wavefront_utils.hpp"
+#include "utils/string_padded.hpp"
 
 /*
  * Reduce wavefront

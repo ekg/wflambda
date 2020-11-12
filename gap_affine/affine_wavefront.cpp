@@ -30,10 +30,10 @@
  *   alignment (Main module)
  */
 
-#include "gap_affine/affine_wavefront.h"
-#include "gap_affine/affine_wavefront_backtrace.h"
-#include "gap_affine/affine_wavefront_utils.h"
-#include "gap_affine/affine_penalties.h"
+#include "gap_affine/affine_wavefront.hpp"
+#include "gap_affine/affine_wavefront_backtrace.hpp"
+#include "gap_affine/affine_wavefront_utils.hpp"
+#include "gap_affine/affine_penalties.hpp"
 
 /*
  * Setup

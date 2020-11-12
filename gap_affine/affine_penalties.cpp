@@ -29,5 +29,5 @@
  * DESCRIPTION: Gap-Affine penalties
  */
 
-#include "gap_affine/affine_penalties.h"
+#include "gap_affine/affine_penalties.hpp"
 

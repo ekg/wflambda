@@ -33,7 +33,7 @@
 #ifndef AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_
 #define AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_
 
-#include "utils/commons.h"
+#include "utils/commons.hpp"
 
 /*
  * Wavefront Reduction

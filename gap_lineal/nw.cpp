@@ -30,7 +30,7 @@
  *   gap-lineal pairwise alignment (Needleman-Wunsch - NW)
  */
 
-#include "gap_lineal/nw.h"
+#include "gap_lineal/nw.hpp"
 
 /*
  * NW Traceback

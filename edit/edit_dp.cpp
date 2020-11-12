@@ -29,7 +29,7 @@
  * DESCRIPTION: Dynamic-programming algorithm to compute Levenshtein alignment (edit)
  */
 
-#include "edit_dp.h"
+#include "edit_dp.hpp"
 
 /*
  * Edit distance computation using raw DP-Table

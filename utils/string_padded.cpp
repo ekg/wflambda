@@ -29,8 +29,8 @@
  * DESCRIPTION: Padded string module to avoid handling corner conditions
  */
 
-#include "utils/string_padded.h"
-#include "system/mm_allocator.h"
+#include "utils/string_padded.hpp"
+#include "system/mm_allocator.hpp"
 
 /*
  * Strings (text/pattern) padded

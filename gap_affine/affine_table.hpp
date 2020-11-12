@@ -32,8 +32,8 @@
 #ifndef AFFINE_LAMBDA_TABLE_H_
 #define AFFINE_LAMBDA_TABLE_H_
 
-#include "utils/commons.h"
-#include "edit/edit_cigar.h"
+#include "utils/commons.hpp"
+#include "edit/edit_cigar.hpp"
 
 typedef struct {
   int M; // Alignment matching/mismatching

@@ -32,7 +32,7 @@
 #ifndef AFFINE_LAMBDA_PENALTIES_H_
 #define AFFINE_LAMBDA_PENALTIES_H_
 
-#include "utils/commons.h"
+#include "utils/commons.hpp"
 
 typedef struct {
   int match;              // (Penalty representation; usually M <= 0)

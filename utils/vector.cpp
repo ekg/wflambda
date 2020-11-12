@@ -29,7 +29,7 @@
  * DESCRIPTION: Simple linear vector for generic type elements
  */
 
-#include "vector.h"
+#include "vector.hpp"
 
 /*
  * Constants

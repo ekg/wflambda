@@ -32,10 +32,10 @@
 #ifndef EDIT_CIGAR_H_
 #define EDIT_CIGAR_H_
 
-#include "utils/commons.h"
-#include "system/mm_allocator.h"
-#include "gap_lineal/lineal_penalties.h"
-#include "gap_affine/affine_penalties.h"
+#include "utils/commons.hpp"
+#include "system/mm_allocator.hpp"
+#include "gap_lineal/lineal_penalties.hpp"
+#include "gap_affine/affine_penalties.hpp"
 
 /*
  * CIGAR

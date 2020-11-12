@@ -32,8 +32,8 @@
 #ifndef AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_
 #define AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_
 
-#include "gap_affine/affine_wavefront.h"
-#include "utils/commons.h"
+#include "gap_affine/affine_wavefront.hpp"
+#include "utils/commons.hpp"
 
 /*
  * Computation using Wavefronts

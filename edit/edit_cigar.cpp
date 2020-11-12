@@ -29,7 +29,7 @@
  * DESCRIPTION: Edit cigar data-structure (match/mismatch/insertion/deletion)
  */
 
-#include "edit/edit_cigar.h"
+#include "edit/edit_cigar.hpp"
 
 /*
  * Setup

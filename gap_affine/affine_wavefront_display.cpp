@@ -29,8 +29,8 @@
  * DESCRIPTION: WFA display functions
  */
 
-#include "gap_affine/affine_wavefront_display.h"
-#include "gap_affine/affine_wavefront_utils.h"
+#include "gap_affine/affine_wavefront_display.hpp"
+#include "gap_affine/affine_wavefront_utils.hpp"
 
 /*
  * Accessors

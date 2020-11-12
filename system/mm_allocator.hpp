@@ -34,7 +34,7 @@
 #ifndef MM_ALLOCATOR_H_
 #define MM_ALLOCATOR_H_
 
-#include "utils/vector.h"
+#include "utils/vector.hpp"
 
 /*
  * Debug

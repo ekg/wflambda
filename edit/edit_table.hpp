@@ -32,9 +32,9 @@
 #ifndef EDIT_TABLE_H_
 #define EDIT_TABLE_H_
 
-#include "utils/commons.h"
-#include "system/mm_allocator.h"
-#include "edit/edit_cigar.h"
+#include "utils/commons.hpp"
+#include "system/mm_allocator.hpp"
+#include "edit/edit_cigar.hpp"
 
 /*
  * Constants

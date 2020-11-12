@@ -34,14 +34,14 @@
 #define AFFINE_LAMBDA_WAVEFRONT_H_
 
 
-#include "utils/commons.h"
-#include "system/profiler_counter.h"
-#include "system/profiler_timer.h"
+#include "utils/commons.hpp"
+#include "system/profiler_counter.hpp"
+#include "system/profiler_timer.hpp"
 
-#include "gap_affine/affine_table.h"
-#include "gap_affine/affine_wavefront_penalties.h"
-#include "gap_affine/affine_wavefront_reduction.h"
-#include "gap_affine/wavefront_stats.h"
+#include "gap_affine/affine_table.hpp"
+#include "gap_affine/affine_wavefront_penalties.hpp"
+#include "gap_affine/affine_wavefront_reduction.hpp"
+#include "gap_affine/wavefront_stats.hpp"
 
 /*
  * Debug

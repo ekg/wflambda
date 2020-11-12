@@ -33,9 +33,9 @@
 #ifndef SWG_H_
 #define SWG_H_
 
-#include "utils/commons.h"
-#include "edit/edit_table.h"
-#include "gap_affine/affine_table.h"
+#include "utils/commons.hpp"
+#include "edit/edit_table.hpp"
+#include "gap_affine/affine_table.hpp"
 
 /*
  * SWG distance computation using raw DP-Table

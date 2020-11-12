@@ -35,9 +35,9 @@
 /*
  * Includes
  */
-#include "gap_affine/affine_table.h"
-#include "gap_affine/affine_wavefront.h"
-#include "utils/commons.h"
+#include "gap_affine/affine_table.hpp"
+#include "gap_affine/affine_wavefront.hpp"
+#include "utils/commons.hpp"
 
 /*
  * Accessors

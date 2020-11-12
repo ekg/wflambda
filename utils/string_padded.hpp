@@ -35,8 +35,8 @@
 /*
  * Includes
  */
-#include "utils/commons.h"
-#include "system/mm_allocator.h"
+#include "utils/commons.hpp"
+#include "system/mm_allocator.hpp"
 
 /*
  * Strings Padded

@@ -39,7 +39,7 @@
 /*
  * Include
  */
-#include "utils/dna_text.h"
+#include "utils/dna_text.hpp"
 
 /*
  * Tables/Conversions Implementation

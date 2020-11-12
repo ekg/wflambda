@@ -32,7 +32,7 @@
 #ifndef BENCHMARK_EDIT_H_
 #define BENCHMARK_EDIT_H_
 
-#include "benchmark/benchmark_utils.h"
+#include "benchmark/benchmark_utils.hpp"
 
 /*
  * Check

@@ -181,7 +181,7 @@ void parse_arguments(int argc,char** argv) {
   struct option long_options[] = {
     { "num-patterns", required_argument, 0, 'n' },
     { "output", required_argument, 0, 'o' },
-    { "length", required_argument, 0, 'l' },
+    { "leng.hpp", required_argument, 0, 'l' },
     { "error", required_argument, 0, 'e' },
     { "help", no_argument, 0, 'h' },
     { 0, 0, 0, 0 } };
@@ -191,7 +191,7 @@ void parse_arguments(int argc,char** argv) {
     exit(0);
   }
   while (1) {
-    c=getopt_long(argc,argv,"n:o:l:e:h",long_options,&option_index);
+    c=getopt_long(argc,argv,"n:o:l:e.hpp",long_options,&option_index);
     if (c==-1) break;
     switch (c) {
       case 'n':

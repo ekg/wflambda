@@ -29,12 +29,12 @@
  * DESCRIPTION: WFA main algorithm
  */
 
-#include "affine_wavefront_align.h"
-#include "gap_affine/affine_wavefront_backtrace.h"
-#include "gap_affine/affine_wavefront_display.h"
-#include "gap_affine/affine_wavefront_extend.h"
-#include "gap_affine/affine_wavefront_utils.h"
-#include "utils/string_padded.h"
+#include "affine_wavefront_align.hpp"
+#include "gap_affine/affine_wavefront_backtrace.hpp"
+#include "gap_affine/affine_wavefront_display.hpp"
+#include "gap_affine/affine_wavefront_extend.hpp"
+#include "gap_affine/affine_wavefront_utils.hpp"
+#include "utils/string_padded.hpp"
 
 /*
  * Fetch & allocate wavefronts

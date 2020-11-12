@@ -32,8 +32,8 @@
 #ifndef EDIT_DP_H_
 #define EDIT_DP_H_
 
-#include "utils/commons.h"
-#include "edit/edit_table.h"
+#include "utils/commons.hpp"
+#include "edit/edit_table.hpp"
 
 /*
  * Edit distance computation using raw DP-Table

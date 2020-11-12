@@ -29,7 +29,7 @@
  * DESCRIPTION: Simple profile-timer for lightweight profiling
  */
 
-#include "profiler_timer.h"
+#include "profiler_timer.hpp"
 
 #ifdef __MACH__
 #include <mach/clock.h>

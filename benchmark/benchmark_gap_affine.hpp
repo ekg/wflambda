@@ -32,8 +32,8 @@
 #ifndef BENCHMARK_GAP_AFFINE_H_
 #define BENCHMARK_GAP_AFFINE_H_
 
-#include "gap_affine/affine_wavefront.h"
-#include "benchmark/benchmark_utils.h"
+#include "gap_affine/affine_wavefront.hpp"
+#include "benchmark/benchmark_utils.hpp"
 
 /*
  * Benchmark SWG

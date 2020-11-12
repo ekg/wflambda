@@ -29,12 +29,12 @@
  * DESCRIPTION: Benchmark utils
  */
 
-#include "benchmark/benchmark_utils.h"
-#include "edit/edit_table.h"
-#include "edit/edit_dp.h"
-#include "gap_lineal/nw.h"
-#include "gap_affine/affine_table.h"
-#include "gap_affine/swg.h"
+#include "benchmark/benchmark_utils.hpp"
+#include "edit/edit_table.hpp"
+#include "edit/edit_dp.hpp"
+#include "gap_lineal/nw.hpp"
+#include "gap_affine/affine_table.hpp"
+#include "gap_affine/swg.hpp"
 
 /*
  * Setup

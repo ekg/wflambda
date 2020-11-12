@@ -32,9 +32,9 @@
 #ifndef WAVEFRONT_STATS_H_
 #define WAVEFRONT_STATS_H_
 
-#include "utils/commons.h"
-#include "system/profiler_counter.h"
-#include "system/profiler_timer.h"
+#include "utils/commons.hpp"
+#include "system/profiler_counter.hpp"
+#include "system/profiler_timer.hpp"
 
 /*
  * Stats

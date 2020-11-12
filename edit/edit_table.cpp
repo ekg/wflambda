@@ -29,8 +29,8 @@
  * DESCRIPTION: DP-table to compute edit alignment
  */
 
-#include "edit/edit_table.h"
-#include "edit/edit_cigar.h"
+#include "edit/edit_table.hpp"
+#include "edit/edit_cigar.hpp"
 
 /*
  * DP-Table Setup

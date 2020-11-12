@@ -32,8 +32,8 @@
 #ifndef PROFILER_TIMER_H
 #define PROFILER_TIMER_H
 
-#include "utils/commons.h"
-#include "system/profiler_counter.h"
+#include "utils/commons.hpp"
+#include "system/profiler_counter.hpp"
 
 /*
  * Time (ms)

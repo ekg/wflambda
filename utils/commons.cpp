@@ -29,7 +29,7 @@
  * DESCRIPTION: Common functions/utilities and headers for C development
  */
 
-#include "commons.h"
+#include "commons.hpp"
 
 /*
  * Random number generator

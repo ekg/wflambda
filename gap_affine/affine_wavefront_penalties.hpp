@@ -32,8 +32,8 @@
 #ifndef AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_
 #define AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_
 
-#include "utils/commons.h"
-#include "gap_affine/affine_penalties.h"
+#include "utils/commons.hpp"
+#include "gap_affine/affine_penalties.hpp"
 
 /*
  * Wavefront Strategy

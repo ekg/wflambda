@@ -30,7 +30,7 @@
  *   pairwise alignment (Smith-Waterman-Gotoh - SWG)
  */
 
-#include "gap_affine/swg.h"
+#include "gap_affine/swg.hpp"
 
 /*
  * SWG distance computation using raw DP-Table

@@ -29,7 +29,7 @@
  * DESCRIPTION: Simple profile-counter for lightweight profiling
  */
 
-#include "profiler_counter.h"
+#include "profiler_counter.hpp"
 
 /*
  * Counters
