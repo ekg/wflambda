@@ -29,7 +29,9 @@
  * DESCRIPTION: WFA Sample-Code
  */
 
-#include "gap_affine/affine_wavefront_align.h"
+#include "gap_affine/affine_wavefront_align.hpp"
+
+using namespace wflambda;
 
 int main(int argc,char* argv[]) {
   // Patter & Text
@@ -49,7 +51,11 @@ int main(int argc,char* argv[]) {
       strlen(pattern),strlen(text),&affine_penalties,NULL,mm_allocator);
   // Align
   affine_wavefronts_align(
-      affine_wavefronts,pattern,strlen(pattern),text,strlen(text));
+      affine_wavefronts,
+      [&](const int& v, const int& h) {
+          return pattern[v] == text[h];
+      },
+      strlen(pattern),strlen(text));
   // Display alignment
   const int score = edit_cigar_score_gap_affine(
       &affine_wavefronts->edit_cigar,&affine_penalties);
