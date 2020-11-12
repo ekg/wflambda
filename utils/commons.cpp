@@ -31,6 +31,8 @@
 
 #include "commons.hpp"
 
+namespace wflambda {
+
 /*
  * Random number generator
  */
@@ -45,4 +47,6 @@ uint64_t rand_iid(const uint64_t min,const uint64_t max) {
   } else {
     return rand_iid(min,max);
   }
+}
+
 }

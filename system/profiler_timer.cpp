@@ -37,6 +37,8 @@
 #include <mach/mach_time.h>
 #endif
 
+namespace wflambda {
+
 /*
  * System timer
  */
@@ -187,4 +189,6 @@ void timer_print(
   } else {
     fprintf(stream,",Max%" PRIu64 "ns})\n",max_ns);
   }
+}
+
 }

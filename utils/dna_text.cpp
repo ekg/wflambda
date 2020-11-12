@@ -41,6 +41,8 @@
  */
 #include "utils/dna_text.hpp"
 
+namespace wflambda {
+
 /*
  * Tables/Conversions Implementation
  */
@@ -59,3 +61,4 @@ const char dna_decode_table[DNA_EXTENDED_RANGE] =
   [ENC_DNA_CHAR_N] = DNA_CHAR_N,
 };
 
+}

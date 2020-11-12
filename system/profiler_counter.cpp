@@ -31,6 +31,8 @@
 
 #include "profiler_counter.hpp"
 
+namespace wflambda {
+
 /*
  * Counters
  */
@@ -337,4 +339,6 @@ uint64_t rcounter_get_variance(profiler_rcounter_t* const rcounter) {
 }
 uint64_t rcounter_get_stddev(profiler_rcounter_t* const rcounter) {
   return counter_get_stddev(&rcounter->counter);
+}
+
 }

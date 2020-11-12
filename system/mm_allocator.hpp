@@ -36,6 +36,8 @@
 
 #include "utils/vector.hpp"
 
+namespace wflambda {
+
 /*
  * Debug
  */
@@ -123,5 +125,7 @@ void mm_allocator_print(
     FILE* const stream,
     mm_allocator_t* const mm_allocator,
     const bool display_requests);
+
+}
 
 #endif /* MM_ALLOCATOR_H_ */

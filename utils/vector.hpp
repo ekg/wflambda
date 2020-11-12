@@ -34,6 +34,8 @@
 
 #include "commons.hpp"
 
+namespace wflambda {
+
 /*
  * Checkers
  */
@@ -137,5 +139,7 @@ void vector_delete(vector_t* const vector);
  */
 void vector_copy(vector_t* const vector_to,vector_t* const vector_from);
 vector_t* vector_dup(vector_t* const vector_src);
+
+}
 
 #endif /* VECTOR_H_ */

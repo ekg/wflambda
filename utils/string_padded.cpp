@@ -32,6 +32,8 @@
 #include "utils/string_padded.hpp"
 #include "system/mm_allocator.hpp"
 
+namespace wflambda {
+
 /*
  * Strings (text/pattern) padded
  */
@@ -119,4 +121,6 @@ void strings_padded_delete(strings_padded_t* const strings_padded) {
   mm_allocator_free(strings_padded->mm_allocator,strings_padded->pattern_padded_buffer);
   mm_allocator_free(strings_padded->mm_allocator,strings_padded->text_padded_buffer);
   mm_allocator_free(strings_padded->mm_allocator,strings_padded);
+}
+
 }

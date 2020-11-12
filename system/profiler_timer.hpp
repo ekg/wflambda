@@ -35,6 +35,8 @@
 #include "utils/commons.hpp"
 #include "system/profiler_counter.hpp"
 
+namespace wflambda {
+
 /*
  * Time (ms)
  */
@@ -84,5 +86,7 @@ void timer_print(
 #define TIMER_GET_TOTAL_S(timer)  TIMER_CONVERT_NS_TO_S(TIMER_GET_TOTAL_NS(timer))
 #define TIMER_GET_TOTAL_M(timer)  TIMER_CONVERT_NS_TO_M(TIMER_GET_TOTAL_NS(timer))
 #define TIMER_GET_TOTAL_H(timer)  TIMER_CONVERT_NS_TO_H(TIMER_GET_TOTAL_NS(timer))
+
+}
 
 #endif /* PROFILER_TIMER_H */

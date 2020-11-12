@@ -29,6 +29,7 @@
  * DESCRIPTION: DNA text encoding/decoding utils
  */
 
+namespace wflambda {
 
 #ifndef DNA_TEXT_H_
 #define DNA_TEXT_H_
@@ -72,5 +73,7 @@ extern const char dna_decode_table[DNA_EXTENDED_RANGE];
  */
 #define dna_encode(character)     (dna_encode_table[(int)(character)])
 #define dna_decode(enc_char)      (dna_decode_table[(int)(enc_char)])
+
+}
 
 #endif /* DNA_TEXT_H_ */

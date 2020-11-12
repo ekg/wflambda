@@ -64,6 +64,8 @@
 #include <assert.h>
 #include <signal.h>
 
+namespace wflambda {
+
 /*
  * Macro Utils (Stringify)
  */
@@ -234,5 +236,7 @@ uint64_t rand_iid(const uint64_t min,const uint64_t max);
 #define DIV_CEIL(NUMERATOR,DENOMINATOR)   (((NUMERATOR)+((DENOMINATOR)-1))/(DENOMINATOR))
 #define DIVC_FLOOR(NUMERATOR,DENOMINATOR) ((DENOMINATOR) ? DIV_FLOOR(NUMERATOR,DENOMINATOR) :(0))
 #define DIVC_CEIL(NUMERATOR,DENOMINATOR)  ((DENOMINATOR) ? DIV_CEIL(NUMERATOR,DENOMINATOR) :(0))
+
+}
 
 #endif /* COMMONS_H_ */

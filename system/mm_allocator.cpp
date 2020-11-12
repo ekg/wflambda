@@ -33,6 +33,8 @@
 
 #include "mm_allocator.hpp"
 
+namespace wflambda {
+
 /*
  * Debug
  */
@@ -492,4 +494,4 @@ void mm_allocator_print(
 }
 
 
-
+}

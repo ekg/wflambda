@@ -38,6 +38,8 @@
 #include "utils/commons.hpp"
 #include "system/mm_allocator.hpp"
 
+namespace wflambda {
+
 /*
  * Strings Padded
  */
@@ -70,5 +72,7 @@ strings_padded_t* strings_padded_new_rhomb(
     mm_allocator_t* const mm_allocator);
 void strings_padded_delete(
     strings_padded_t* const strings_padded);
+
+}
 
 #endif /* STRING_PADDED_H */

@@ -34,6 +34,8 @@
 
 #include "utils/commons.hpp"
 
+namespace wflambda {
+
 /*
  * Counters
  *   (from http://www.johndcook.com/standard_deviation.html)
@@ -143,5 +145,7 @@ uint64_t rcounter_get_stddev(profiler_rcounter_t* const rcounter);
   counter_get_mean(counter), \
   counter_get_variance(counter), \
   counter_get_stddev(counter)
+
+}
 
 #endif /* PROFILER_COUNTER_H_ */

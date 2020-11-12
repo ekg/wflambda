@@ -31,6 +31,8 @@
 
 #include "vector.hpp"
 
+namespace wflambda {
+
 /*
  * Constants
  */
@@ -124,3 +126,4 @@ vector_t* vector_dup(vector_t* const vector_src) {
   return vector_cpy;
 }
 
+}
