@@ -35,6 +35,8 @@
 #include "gap_affine/affine_wavefront_utils.hpp"
 #include "gap_affine/affine_penalties.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -258,3 +260,4 @@ affine_wavefront_t* affine_wavefronts_allocate_wavefront(
   return wavefront;
 }
 
+}

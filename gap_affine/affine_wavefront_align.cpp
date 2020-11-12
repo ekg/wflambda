@@ -36,6 +36,8 @@
 #include "gap_affine/affine_wavefront_utils.hpp"
 #include "utils/string_padded.hpp"
 
+namespace wflambda {
+
 /*
  * Fetch & allocate wavefronts
  */
@@ -376,3 +378,4 @@ void affine_wavefronts_align(
   WAVEFRONT_STATS_COUNTER_ADD(affine_wavefronts,wf_score,score); // STATS
 }
 
+}

@@ -31,6 +31,8 @@
 
 #include "gap_affine/affine_wavefront_utils.hpp"
 
+namespace wflambda {
+
 /*
  * Accessors
  */
@@ -99,4 +101,6 @@ bool affine_wavefront_end_reached(
     }
   }
   return false;
+}
+
 }

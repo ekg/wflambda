@@ -35,6 +35,8 @@
 #include "utils/commons.hpp"
 #include "edit/edit_table.hpp"
 
+namespace wflambda {
+
 /*
  * Edit distance computation using raw DP-Table
  */
@@ -54,5 +56,7 @@ void edit_dp_compute_banded(
     const char* const text,
     const int text_length,
     const int bandwidth);
+
+}
 
 #endif /* EDIT_DP_H_ */

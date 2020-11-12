@@ -32,6 +32,8 @@
 #include "benchmark/benchmark_gap_lineal.hpp"
 #include "gap_lineal/nw.hpp"
 
+namespace wflambda {
+
 /*
  * Benchmark NW
  */
@@ -52,4 +54,6 @@ void benchmark_gap_lineal_nw(
   timer_stop(&align_input->timer);
   // Free
   edit_table_free(&edit_table,align_input->mm_allocator);
+}
+
 }

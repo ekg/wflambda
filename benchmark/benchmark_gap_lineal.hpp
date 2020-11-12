@@ -35,11 +35,15 @@
 #include "gap_lineal/nw.hpp"
 #include "benchmark/benchmark_utils.hpp"
 
+namespace wflambda {
+
 /*
  * Benchmark NW
  */
 void benchmark_gap_lineal_nw(
     align_input_t* const align_input,
     lineal_penalties_t* const penalties);
+
+}
 
 #endif /* BENCHMARK_GAP_LINEAL_H_ */

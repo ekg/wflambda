@@ -31,6 +31,8 @@
 
 #include "gap_affine/affine_wavefront_penalties.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -123,3 +125,4 @@ void affine_penalties_shift(
   }
 }
 
+}

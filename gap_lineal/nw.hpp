@@ -36,6 +36,8 @@
 #include "utils/commons.hpp"
 #include "edit/edit_table.hpp"
 
+namespace wflambda {
+
 /*
  * Edit distance computation using raw DP-Table
  */
@@ -46,5 +48,7 @@ void nw_compute(
     const char* const text,
     const int text_length,
     lineal_penalties_t* const penalties);
+
+}
 
 #endif /* NW_H_ */

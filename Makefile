@@ -23,7 +23,7 @@ AR_FLAGS=-rsc
 # Compile rules
 ###############################################################################
 
-LIB_WFA=$(FOLDER_BUILD)/libwfa.a
+LIB_WFA=$(FOLDER_BUILD)/libwflambda.a
 
 all: CC_FLAGS+=-O3 -Wno-pointer-arith -Wno-literal-suffix
 all: MODE=all

@@ -32,6 +32,8 @@
 
 #include "gap_lineal/nw.hpp"
 
+namespace wflambda {
+
 /*
  * NW Traceback
  */
@@ -93,4 +95,6 @@ void nw_compute(
   }
   // Compute traceback
   nw_traceback(edit_table,penalties);
+}
+
 }

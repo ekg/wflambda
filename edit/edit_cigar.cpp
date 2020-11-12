@@ -31,6 +31,8 @@
 
 #include "edit/edit_cigar.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -373,3 +375,4 @@ void edit_cigar_print_pretty(
 }
 
 
+}

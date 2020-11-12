@@ -43,6 +43,8 @@
 #include "gap_affine/affine_wavefront_reduction.hpp"
 #include "gap_affine/wavefront_stats.hpp"
 
+namespace wflambda {
+
 /*
  * Debug
  */
@@ -181,5 +183,7 @@ affine_wavefront_t* affine_wavefronts_allocate_wavefront(
     affine_wavefronts_t* const affine_wavefronts,
     const int lo_base,
     const int hi_base);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_H_ */

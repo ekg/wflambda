@@ -32,6 +32,8 @@
 #include "benchmark/benchmark_utils.hpp"
 #include "edit/edit_dp.hpp"
 
+namespace wflambda {
+
 /*
  * Benchmark Edit
  */
@@ -77,4 +79,6 @@ void benchmark_edit_dp_banded(
   }
   // Free
   edit_table_free(&edit_table,align_input->mm_allocator);
+}
+
 }

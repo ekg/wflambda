@@ -31,6 +31,8 @@
 
 #include "gap_affine/affine_wavefront_backtrace.hpp"
 
+namespace wflambda {
+
 /*
  * Backtrace Detect Limits
  */
@@ -382,4 +384,6 @@ void affine_wavefronts_backtrace(
   ++(cigar->begin_offset); // Set CIGAR length
   // STATS
   WAVEFRONT_STATS_TIMER_STOP(affine_wavefronts,wf_time_backtrace);
+}
+
 }

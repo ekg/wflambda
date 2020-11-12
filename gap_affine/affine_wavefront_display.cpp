@@ -32,6 +32,8 @@
 #include "gap_affine/affine_wavefront_display.hpp"
 #include "gap_affine/affine_wavefront_utils.hpp"
 
+namespace wflambda {
+
 /*
  * Accessors
  */
@@ -271,3 +273,4 @@ void affine_wavefronts_debug_step(
 }
 
 
+}

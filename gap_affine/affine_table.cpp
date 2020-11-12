@@ -32,6 +32,8 @@
 #include "edit/edit_table.hpp"
 #include "gap_affine/affine_table.hpp"
 
+namespace wflambda {
+
 /*
  * Gap-Affine Table Setup
  */
@@ -142,4 +144,6 @@ void affine_table_print_extended(
     fprintf(stream,"\n");
   }
   fprintf(stream,"\n");
+}
+
 }

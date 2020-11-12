@@ -32,6 +32,8 @@
 
 #include "gap_affine/swg.hpp"
 
+namespace wflambda {
+
 /*
  * SWG distance computation using raw DP-Table
  */
@@ -211,4 +213,6 @@ void swg_compute_banded(
   }
   // Compute traceback
   swg_traceback(affine_table,penalties);
+}
+
 }

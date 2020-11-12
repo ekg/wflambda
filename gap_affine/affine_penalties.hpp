@@ -34,11 +34,15 @@
 
 #include "utils/commons.hpp"
 
+namespace wflambda {
+
 typedef struct {
   int match;              // (Penalty representation; usually M <= 0)
   int mismatch;           // (Penalty representation; usually X > 0)
   int gap_opening;        // (Penalty representation; usually O > 0)
   int gap_extension;      // (Penalty representation; usually E > 0)
 } affine_penalties_t;
+
+}
 
 #endif /* AFFINE_LAMBDA_PENALTIES_H_ */

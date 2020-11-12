@@ -39,6 +39,8 @@
 #include "gap_affine/affine_wavefront_display.hpp"
 #include "gap_affine/swg.hpp"
 
+namespace wflambda {
+
 /*
  * Benchmark SWG
  */
@@ -119,4 +121,6 @@ void benchmark_gap_affine_wavefront(
   }
   // Free
   affine_wavefronts_delete(affine_wavefronts);
+}
+
 }

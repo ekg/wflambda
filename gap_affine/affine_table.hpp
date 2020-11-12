@@ -35,6 +35,8 @@
 #include "utils/commons.hpp"
 #include "edit/edit_cigar.hpp"
 
+namespace wflambda {
+
 typedef struct {
   int M; // Alignment matching/mismatching
   int I; // Alignment ends with a gap in the reference (insertion)
@@ -74,5 +76,7 @@ void affine_table_print_extended(
     const affine_table_t* const table,
     const char* const pattern,
     const char* const text);
+
+}
 
 #endif /* AFFINE_LAMBDA_TABLE_H_ */

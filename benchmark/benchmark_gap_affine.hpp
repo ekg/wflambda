@@ -35,6 +35,8 @@
 #include "gap_affine/affine_wavefront.hpp"
 #include "benchmark/benchmark_utils.hpp"
 
+namespace wflambda {
+
 /*
  * Benchmark SWG
  */
@@ -50,5 +52,7 @@ void benchmark_gap_affine_wavefront(
     affine_penalties_t* const penalties,
     const int min_wavefront_length,
     const int max_distance_threshold);
+
+}
 
 #endif /* BENCHMARK_GAP_AFFINE_H_ */

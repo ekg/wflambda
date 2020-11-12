@@ -35,6 +35,8 @@
 #include <functional>
 #include "gap_affine/affine_wavefront.hpp"
 
+namespace wflambda {
+
 /*
  * Constants
  */
@@ -49,5 +51,7 @@ void affine_wavefronts_extend_wavefront(
     const int pattern_length,
     const int text_length,
     const int score);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_EXTEND_H_ */

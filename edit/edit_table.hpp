@@ -36,6 +36,8 @@
 #include "system/mm_allocator.hpp"
 #include "edit/edit_cigar.hpp"
 
+namespace wflambda {
+
 /*
  * Constants
  */
@@ -73,5 +75,7 @@ void edit_table_print(
     const edit_table_t* const edit_table,
     const char* const pattern,
     const char* const text);
+
+}
 
 #endif /* EDIT_TABLE_H_ */

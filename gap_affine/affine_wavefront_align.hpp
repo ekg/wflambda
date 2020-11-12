@@ -36,6 +36,8 @@
 #include "gap_affine/affine_wavefront.hpp"
 #include "utils/commons.hpp"
 
+namespace wflambda {
+
 /*
  * Computation using Wavefronts
  */
@@ -44,5 +46,7 @@ void affine_wavefronts_align(
     const std::function<bool(const int&, const int&)>& lambda,
     const int pattern_length,
     const int text_length);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_ALIGN_H_ */

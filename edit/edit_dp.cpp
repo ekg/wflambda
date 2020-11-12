@@ -31,6 +31,8 @@
 
 #include "edit_dp.hpp"
 
+namespace wflambda {
+
 /*
  * Edit distance computation using raw DP-Table
  */
@@ -131,4 +133,6 @@ void edit_dp_compute_banded(
   }
   // Compute traceback
   edit_dp_traceback(edit_table);
+}
+
 }

@@ -34,6 +34,8 @@
 
 #include "benchmark/benchmark_utils.hpp"
 
+namespace wflambda {
+
 /*
  * Check
  */
@@ -49,5 +51,7 @@ void benchmark_edit_dp(
 void benchmark_edit_dp_banded(
     align_input_t* const align_input,
     const int bandwidth);
+
+}
 
 #endif /* BENCHMARK_EDIT_H_ */

@@ -35,6 +35,8 @@
 #include <functional>
 #include "gap_affine/affine_wavefront.hpp"
 
+namespace wflambda {
+
 /*
  * Sequences DTO
  */
@@ -63,5 +65,7 @@ void affine_wavefronts_backtrace(
     const int pattern_length,
     const int text_length,
     const int alignment_score);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_BACKTRACE_H_ */

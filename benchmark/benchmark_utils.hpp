@@ -38,6 +38,8 @@
 #include "edit/edit_table.hpp"
 #include "gap_affine/wavefront_stats.hpp"
 
+namespace wflambda {
+
 /*
  * Constants
  */
@@ -125,5 +127,7 @@ void benchmark_print_stats(
     FILE* const stream,
     align_input_t* const align_input,
     const bool print_wf_stats);
+
+}
 
 #endif /* BENCHMARK_UTILS_H_ */

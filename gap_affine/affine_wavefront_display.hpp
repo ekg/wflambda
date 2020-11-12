@@ -39,6 +39,8 @@
 #include "gap_affine/affine_wavefront.hpp"
 #include "utils/commons.hpp"
 
+namespace wflambda {
+
 /*
  * Accessors
  */
@@ -74,5 +76,7 @@ void affine_wavefronts_debug_step(
     const char* const pattern,
     const char* const text,
     const int score);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_DISPLAY_H_ */

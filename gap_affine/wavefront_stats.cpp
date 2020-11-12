@@ -31,6 +31,8 @@
 
 #include "gap_affine/wavefront_stats.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -98,3 +100,4 @@ void wavefronts_stats_print(
 
 
 
+}

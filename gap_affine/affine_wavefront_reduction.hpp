@@ -35,6 +35,8 @@
 
 #include "utils/commons.hpp"
 
+namespace wflambda {
+
 /*
  * Wavefront Reduction
  */
@@ -61,5 +63,7 @@ void affine_wavefronts_reduction_set_dynamic(
     affine_wavefronts_reduction_t* const wavefronts_reduction,
     const int min_wavefront_length,
     const int max_distance_threshold);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_REDUCTION_H_ */

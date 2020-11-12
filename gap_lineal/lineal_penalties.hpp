@@ -32,11 +32,15 @@
 #ifndef LINEAL_PENALTIES_H_
 #define LINEAL_PENALTIES_H_
 
+namespace wflambda {
+
 typedef struct {
   int match;              // (Penalty representation; usually M <= 0)
   int mismatch;           // (Penalty representation; usually X > 0)
   int insertion;          // (Penalty representation; usually I > 0)
   int deletion;           // (Penalty representation; usually D > 0)
 } lineal_penalties_t;
+
+}
 
 #endif /* LINEAL_PENALTIES_H_ */

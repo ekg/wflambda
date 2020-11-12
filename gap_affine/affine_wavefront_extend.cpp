@@ -35,6 +35,8 @@
 #include "gap_affine/affine_wavefront_utils.hpp"
 #include "utils/string_padded.hpp"
 
+namespace wflambda {
+
 /*
  * Reduce wavefront
  */
@@ -232,4 +234,6 @@ void affine_wavefronts_extend_wavefront(
         affine_wavefronts,pattern_length,
         text_length,score);
   }
+}
+
 }

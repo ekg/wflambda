@@ -36,6 +36,8 @@
 #include "system/profiler_counter.hpp"
 #include "system/profiler_timer.hpp"
 
+namespace wflambda {
+
 /*
  * Stats
  */
@@ -83,5 +85,7 @@ void wavefronts_stats_clear(wavefronts_stats_t* const wavefronts_stats);
 void wavefronts_stats_print(
     FILE* const stream,
     wavefronts_stats_t* const wavefronts_stats);
+
+}
 
 #endif /* WAVEFRONT_STATS_H_ */

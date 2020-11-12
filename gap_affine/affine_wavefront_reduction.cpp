@@ -32,6 +32,8 @@
 
 #include "gap_affine/affine_wavefront_reduction.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -46,4 +48,6 @@ void affine_wavefronts_reduction_set_dynamic(
   wavefronts_reduction->reduction_strategy = wavefronts_reduction_dynamic;
   wavefronts_reduction->min_wavefront_length = min_wavefront_length;
   wavefronts_reduction->max_distance_threshold = max_distance_threshold;
+}
+
 }

@@ -34,6 +34,8 @@
 
 #include "gap_affine/affine_wavefront.hpp"
 
+namespace wflambda {
+
 /*
  * Accessors
  */
@@ -65,5 +67,7 @@ bool affine_wavefront_end_reached(
     const int pattern_length,
     const int text_length,
     const int score);
+
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_UTILS_H_ */

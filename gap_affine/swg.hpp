@@ -37,6 +37,8 @@
 #include "edit/edit_table.hpp"
 #include "gap_affine/affine_table.hpp"
 
+namespace wflambda {
+
 /*
  * SWG distance computation using raw DP-Table
  */
@@ -59,5 +61,7 @@ void swg_compute_banded(
     const char* const text,
     const int text_length,
     const int bandwidth);
+
+}
 
 #endif /* SWG_H_ */

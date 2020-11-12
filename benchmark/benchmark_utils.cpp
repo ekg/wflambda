@@ -36,6 +36,8 @@
 #include "gap_affine/affine_table.hpp"
 #include "gap_affine/swg.hpp"
 
+namespace wflambda {
+
 /*
  * Setup
  */
@@ -289,7 +291,7 @@ void benchmark_print_stats(
 }
 
 
-
+}
 
 
 

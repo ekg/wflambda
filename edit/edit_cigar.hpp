@@ -37,6 +37,8 @@
 #include "gap_lineal/lineal_penalties.hpp"
 #include "gap_affine/affine_penalties.hpp"
 
+namespace wflambda {
+
 /*
  * CIGAR
  */
@@ -127,5 +129,7 @@ void edit_cigar_print_pretty(
     const int text_length,
     edit_cigar_t* const edit_cigar,
     mm_allocator_t* const mm_allocator);
+
+}
 
 #endif /* EDIT_CIGAR_H_ */

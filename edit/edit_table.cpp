@@ -32,6 +32,8 @@
 #include "edit/edit_table.hpp"
 #include "edit/edit_cigar.hpp"
 
+namespace wflambda {
+
 /*
  * DP-Table Setup
  */
@@ -108,3 +110,4 @@ void edit_table_print(
   fprintf(stream,"\n");
 }
 
+}

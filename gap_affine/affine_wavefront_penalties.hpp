@@ -35,6 +35,8 @@
 #include "utils/commons.hpp"
 #include "gap_affine/affine_penalties.hpp"
 
+namespace wflambda {
+
 /*
  * Wavefront Strategy
  */
@@ -73,5 +75,6 @@ void affine_penalties_shift(
     affine_penalties_t* const shifted_penalties,
     const bool pair_odd_heuristic);
 
+}
 
 #endif /* AFFINE_LAMBDA_WAVEFRONT_PENALTIES_H_ */
