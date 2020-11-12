@@ -64,7 +64,7 @@ void vector_reserve(vector_t* const vector,const uint64_t num_elements,const boo
     }
   }
   if (zero_mem) {
-    memset(vector->memory+vector->used*vector->element_size,0,
+      memset((uint8_t*)vector->memory+vector->used*vector->element_size,0,
         (vector->elements_allocated-vector->used)*vector->element_size);
   }
 }

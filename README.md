@@ -18,6 +18,21 @@ Otherwise, it is not a match.
 Thus, the wavefront progression of WFλ bounds our evaluation of the full alignment matrix.
 The total maximum memory is bounded by the cost of a single alignment problem and the cost of maintaining the WFA wavefronts.
 
+## Building
+
+Either make or cmake can be used to build wflambda.
+
+```
+cmake -H. -Bbuild && cmake --build build -- -j 16
+```
+
+The library can be included in another cmake project like this:
+
+```
+add_subdirectory(deps/wflambda EXCLUDE_FROM_ALL)
+target_link_libraries(your_exe wflambda) # or target_link_libraries(your_exe wflambda)
+```
+
 ## License
 
 WFλ is distributed under MIT licence.

@@ -127,14 +127,14 @@ uint64_t rcounter_get_stddev(profiler_rcounter_t* const rcounter);
 /*
  * Display
  */
-#define PRIcounter "lu(#%"PRIu64",m%"PRIu64",M%"PRIu64",{%.2f})"
+#define PRIcounter "lu(#%" PRIu64 ",m%" PRIu64 ",M%" PRIu64 ",{%.2f})"
 #define PRIcounterVal(counter) \
   counter_get_total(counter), \
   counter_get_num_samples(counter), \
   counter_get_min(counter), \
   counter_get_max(counter), \
   counter_get_mean(counter)
-#define PRIcounterX "lu(#%"PRIu64",m%"PRIu64",M%"PRIu64",{%.2f,%.2f,%.2f})"
+#define PRIcounterX "lu(#%" PRIu64 ",m%" PRIu64 ",M%" PRIu64 ",{%.2f,%.2f,%.2f})"
 #define PRIcounterXVal(counter) \
   counter_get_total(counter), \
   counter_get_num_samples(counter), \
