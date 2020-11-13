@@ -29,6 +29,7 @@
  * DESCRIPTION: WFA extend exact-matches component
  */
 
+#include <iostream>
 #include "gap_affine/affine_wavefront_display.hpp"
 #include "gap_affine/affine_wavefront_extend.hpp"
 #include "gap_affine/affine_wavefront_reduction.hpp"
@@ -207,7 +208,13 @@ void affine_wavefronts_extend_mwavefront_compute(
     int h = AFFINE_LAMBDA_WAVEFRONT_H(k,offset);
     while (lambda(v++,h++)) {
       ++(offsets[k]);
+#ifdef WF_DEBUG_EXTEND
+      std::cerr << v-1 << "\t" << h-1 << "\t" << score << "\t" << "aligned" << std::endl;
+#endif
     }
+#ifdef WF_DEBUG_EXTEND
+    std::cerr << v << "\t" << h << "\t" << score << "\t" << "unaligned" << std::endl;
+#endif
   }
   // DEBUG
   affine_wavefronts_extend_mwavefront_epiloge(
